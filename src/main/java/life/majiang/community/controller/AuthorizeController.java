@@ -19,6 +19,7 @@ import java.util.UUID;
 public class AuthorizeController {
     @Autowired
     private GithubProvider githubProvider;
+    @Autowired
     private CommService commService;
 
     @Value("${github.client.id}")
@@ -46,12 +47,19 @@ public class AuthorizeController {
            //登录成功，写cookie和session
            ComUser comuser=new ComUser();
            comuser.setToken(UUID.randomUUID().toString());
-           comuser.setName(githubuser.getName());
+         //  System.out.println("下面是空指针异常");
+           comuser.setName(githubuser.getLogin());
            comuser.setAccountId(String.valueOf(githubuser.getId()));
            comuser.setGmtCreate(System.currentTimeMillis());
            comuser.setGmtModified(comuser.getGmtCreate());
+           System.out.println("comuser.getname"+comuser.getName());
+           System.out.println("comuser.getAccountid"+comuser.getAccountId());
+           System.out.println("comuser.getGmtCreate"+comuser.getGmtCreate());
+           System.out.println("comuser.getGmtCreate"+comuser.getGmtModified());
 
+         // ComUser user=commService.select(1);
            commService.insert(comuser);
+
           // request.getSession().setAttribute("user",githubuser);
                    return "redirect:/";
        }else {

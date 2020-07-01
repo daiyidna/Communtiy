@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@MapperScan("bjsxt.mapper")//指定扫描接口与映射配置文件
+@MapperScan("life.majiang.community.bjsxt.mapper")//指定扫描接口与映射配置文件
 public class CommunityApplication {
     public static void main(String[] args) {
         SpringApplication.run(CommunityApplication.class,args);

@@ -105,7 +105,7 @@
                 </executions>
                 <configuration>
                     <!--mybatis-generator工具配置文件的位置-->
-                    <configurationFile>springboot_mybatis/src/main/resources/generatorConfig.xml</configurationFile>
+                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
                 </configuration>

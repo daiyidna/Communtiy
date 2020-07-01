@@ -10,9 +10,15 @@ import org.springframework.stereotype.Service;
 public class CommServiceImpl  implements CommService {
     @Autowired
     private ComUserMapper commapper;
-    @Override
+
     public void insert(ComUser comUser) {
+        System.out.println("到server了------------------------------------------------------");
         commapper.insert(comUser);
 
+    }
+
+    @Override
+    public ComUser select(Integer id) {
+        return  commapper.selectByPrimaryKey(id);
     }
 }
